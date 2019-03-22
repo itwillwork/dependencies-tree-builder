@@ -88,10 +88,10 @@ class ScoupeFactory {
           if (dependency.usages.length > popularVersion.usages.length) {
             return dependency;
           }
-          
+
           // TODO еще раз проработать возможно тут бага
           if (
-            dependency.usages.length === popularVersion.usages.length && 
+            dependency.usages.length === popularVersion.usages.length &&
             semver.lt(popularVersion.version, dependency.version)
           ) {
             return dependency;
