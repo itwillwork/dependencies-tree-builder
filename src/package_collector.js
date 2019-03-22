@@ -8,11 +8,11 @@ class PackageCollector {
   }
 
   _getCacheInstance() {
-    return PackageCollector._cacheInstance || {};
+    return PackageCollector._cacheInstance;
   }
 
   restoreCacheInstance() {
-    if (!PackageCollector._cacheInstance) {
+    if (_.isEmpty(PackageCollector._cacheInstance)) {
       PackageCollector._cacheInstance = this._packageCache.get();
       this._needSave = false;
     }
@@ -75,5 +75,7 @@ class PackageCollector {
     return Object.values(cache[name].versions);
   }
 }
+
+PackageCollector._cacheInstance = {};
 
 module.exports = PackageCollector;
