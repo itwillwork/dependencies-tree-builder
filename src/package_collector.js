@@ -13,7 +13,7 @@ class PackageCollector {
 
   restoreCacheInstance() {
     if (_.isEmpty(PackageCollector._cacheInstance)) {
-      PackageCollector._cacheInstance = this._packageCache.get();
+      PackageCollector._cacheInstance = this._packageCache.get() || {};
       this._needSave = false;
     }
   }
