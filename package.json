@@ -1,0 +1,28 @@
+{
+  "name": "dependencies-tree-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "format": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\"",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itwillwork/dependencies-tree-builder.git"
+  },
+  "author": "itwillwork <nurullin_edgar@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itwillwork/dependencies-tree-builder/issues"
+  },
+  "homepage": "https://github.com/itwillwork/dependencies-tree-builder#readme",
+  "dependencies": {
+    "lodash": "4.17.11",
+    "package-json": "6.0.0",
+    "semver": "5.6.0"
+  },
+  "devDependencies": {
+    "jest": "24.3.1"
+  }
+}
