@@ -1,6 +1,7 @@
 const fs = require('fs');
+const path = require('path');
 
-const CACHE_FILE = 'packages.cache.json';
+const CACHE_FILE = path.resolve(__dirname, '../.packages.cache.json');
 
 class PackageCache {
   constructor(logger) {
