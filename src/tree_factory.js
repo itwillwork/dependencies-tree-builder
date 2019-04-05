@@ -16,16 +16,16 @@ class TreeFactory {
 
     const dependencies = await Promise.all(
       rawNodeDependencies.map(async ([name, version]) => {
-        const fullName = `${name}@${version}`;
+        const dependencyFullName = `${name}@${version}`;
 
         if (!semver.valid(version)) {
-          this._logger.log(`skip ${fullName}`);
+          this._logger.log(`skip ${dependencyFullName}`);
 
-          return `skip ${fullName}`;
+          return `skip ${dependencyFullName}`;
         }
 
-        if (reviewedDependencies[fullName]) {
-          return `skip ${fullName}`;
+        if (reviewedDependencies[dependencyFullName]) {
+          return `skip ${dependencyFullName}`;
         }
 
         const dependency = await this._packageCollector.get(name, version);
@@ -34,7 +34,7 @@ class TreeFactory {
 
         return await this.create(dependency, nextBreadcrumbs, { 
           ...reviewedDependencies,
-          [fullName]: true,
+          [dependencyFullName]: true,
         });
       })
     );
