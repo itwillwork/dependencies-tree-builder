@@ -6,7 +6,6 @@ const Logger = require('./logger');
 const packageJson = require('package-json');
 
 const DEFAULT_OPTIONS = {
-  maxDepth: 3,
   useCache: true,
   viewFullLogs: false,
 };
@@ -35,7 +34,7 @@ module.exports = async (
     logger.log('restored packageCollector');
   }
 
-  const treeFactory = new TreeFactory(packageCollector, logger, options.maxDepth);
+  const treeFactory = new TreeFactory(packageCollector, logger);
   const tree = await treeFactory.create(treeRoot);
   logger.log('builded tree: \n', JSON.stringify(tree, null, 4));
 
