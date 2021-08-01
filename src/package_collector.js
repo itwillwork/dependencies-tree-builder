@@ -35,10 +35,10 @@ class PackageCollector {
     return this._preparePackageInfo(rawData);
   }
 
-  async _checkPackageInfo(name) {
+  async _checkPackageInfo(name, version) {
     const cache = this._getCacheInstance();
 
-    if (cache[name]) {
+    if (cache[name] && (!version || cache[name].versions[version])) {
       return;
     }
 
@@ -50,7 +50,7 @@ class PackageCollector {
   async get(name, version) {
     this._logger.log(`get info about package: ${name}@${version}`);
 
-    await this._checkPackageInfo(name);
+    await this._checkPackageInfo(name, version);
     const cache = this._getCacheInstance();
 
     return cache[name].versions[version];
